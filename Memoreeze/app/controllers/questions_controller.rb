@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user
   after_action :allow_iframe, only: [:show, :result]
   @@count=0
   @@result=0

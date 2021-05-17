@@ -33,8 +33,7 @@ class LtiController < ApplicationController
       end
     end
     #Login the user and create his session.
-    # authorized_user = User.authenticate(email,email)
-    authorized_user = User.find_by_email(email)
+    authorized_user = User.authenticate(email,email)
     session[:user_id] = authorized_user.id
     #redirect the user to give quiz starting from question id 1
     redirect_to(:controller => "questions", :action => "show", :id => 1)
@@ -48,8 +47,8 @@ class LtiController < ApplicationController
     @tp.extend IMS::LTI::Extensions::OutcomeData::ToolProvider
 
     if !@tp.outcome_service?
-      @message = "This tool wasn't launched as an outcome service"
-      puts "This tool wasn't launched as an outcome service"
+      @message = "This tool wasn't lunched as an outcome service"
+      puts "This tool wasn't lunched as an outcome service"
       render(:launch_error)
     end
 
